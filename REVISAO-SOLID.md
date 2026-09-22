@@ -186,3 +186,77 @@ Nave e Inimigo também implementam Movel.
 ```
 
 Essa alteração reduziu duplicação e tornou mais explícitas as responsabilidades das entidades.
+
+from pathlib import Path
+
+src = Path("/mnt/data/REVISAO-SOLID.md")
+out = Path("/mnt/data/REVISAO-SOLID_atualizada.md")
+
+original = src.read_text(encoding="utf-8")
+
+addition = r'''
+
+---
+
+Nome: João Pedro Palhano  
+Data: 22/09/2026
+
+## Como validei a solução
+
+Registre os comandos executados e os fluxos testados:
+
+- [X] compilação da versão refatorada;
+- [X] início de uma missão;
+- [X] criação de passageiros e inimigos;
+- [X] movimentação da nave;
+- [X] movimentação dos inimigos;
+- [X] embarque de passageiros;
+- [X] colisão com inimigo;
+- [X] perda de vidas;
+- [X] conclusão da missão;
+- [X] consulta do ranking;
+- [X] salvamento do resultado no ranking;
+- [X] outro teste: controle de pontuação, movimentos e tempo da missão.
+
+### Testes realizados nas camadas `service`, `presentation` e `repository`
+
+**JogoService**
+
+* Criação de uma nova missão: aprovado.
+* Escolha de piloto, dificuldade e tamanho do mapa: aprovado.
+* Geração de passageiros e inimigos: aprovado.
+* Controle de pontuação: aprovado.
+* Controle de movimentos: aprovado.
+* Controle de tempo: aprovado.
+* Condição de vitória: aprovado.
+
+**Movimentação**
+
+* Comandos `w`, `s`, `a` e `d`: aprovado.
+* Limites do mapa: aprovado.
+* Movimentação aleatória dos inimigos: aprovado.
+
+**Embarque**
+
+* Passageiro encontrado na posição da nave: aprovado.
+* Passageiro removido da superfície após o embarque: aprovado.
+* Passageiro contabilizado na nave: aprovado.
+* Pontuação adicionada de acordo com `getPontuacao()`: aprovado.
+
+**Colisão**
+
+* Nave ocupando a mesma posição de um inimigo: aprovado.
+* Perda de uma vida após a colisão: aprovado.
+* Vidas da nave reduzidas corretamente: aprovado.
+
+**Conclusão da missão**
+
+* Todos os passageiros embarcados: aprovado.
+* Retorno da nave para `(0, 0)`: aprovado.
+* Mensagem de conclusão exibida: aprovado.
+* Pontuação, movimentos e tempo exibidos: aprovado.
+
+Exemplo de resultado obtido:
+
+```text
+Missao concluida. Pontos: 56, movimentos: 34, tempo: 35s
