@@ -1,0 +1,124 @@
+@startuml
+
+title Diagrama de Classes - Missão Marte Unifor
+
+package "solidexercicio10.model" {
+
+    interface Posicionavel {
+        +getX() : int
+        +getY() : int
+    }
+
+    interface Movel {
+        +mover(dx : int, dy : int) : void
+    }
+
+    abstract class EntidadeMapa {
+        -x : int
+        -y : int
+        +EntidadeMapa(x : int, y : int)
+        +getX() : int
+        +getY() : int
+        #setX(x : int) : void
+        #setY(y : int) : void
+    }
+
+    abstract class Passageiro {
+        -nome : String
+        #Passageiro(nome : String, x : int, y : int)
+        +getNome() : String
+        +getPontuacao() : int
+        +getTipo() : String
+    }
+
+    class Professor {
+        +Professor(nome : String, x : int, y : int)
+        +getPontuacao() : int
+        +getTipo() : String
+    }
+
+    class Engenheiro {
+        +Engenheiro(nome : String, x : int, y : int)
+        +getPontuacao() : int
+        +getTipo() : String
+    }
+
+    class Astronauta {
+        +Astronauta(nome : String, x : int, y : int)
+        +getPontuacao() : int
+        +getTipo() : String
+    }
+
+    class Nave {
+        -id : String
+        -capacidade : int
+        -vidas : int
+        -passageiros : List<Passageiro>
+        +Nave(id : String, capacidade : int)
+        +getId() : String
+        +getCapacidade() : int
+        +getVidas() : int
+        +getPassageiros() : List<Passageiro>
+        +mover(dx : int, dy : int) : void
+        +moverComLimites(...) : void
+        +embarcar(p : Passageiro) : boolean
+        +perderVida() : void
+    }
+
+    class Asteroide {
+        +Asteroide(x : int, y : int)
+    }
+
+    class Inimigo {
+        +Inimigo(x : int, y : int)
+        +colideCom(n : Nave) : boolean
+        +mover(dx : int, dy : int) : void
+    }
+
+    class Missao {
+        -nave : Nave
+        -passageiros : List<Passageiro>
+        -asteroides : List<Asteroide>
+        -inimigos : List<Inimigo>
+        +Missao(nave : Nave)
+        +getNave() : Nave
+        +getPassageiros() : List<Passageiro>
+        +getAsteroides() : List<Asteroide>
+        +getInimigos() : List<Inimigo>
+        +addPassageiro(p : Passageiro) : void
+        +addAsteroide(a : Asteroide) : void
+        +addInimigo(i : Inimigo) : void
+        +todosEmbarcados() : boolean
+    }
+
+    enum Dificuldade {
+        FACIL
+        MEDIO
+        DIFICIL
+        +deString(s : String) : Dificuldade
+        +toString() : String
+    }
+}
+
+EntidadeMapa ..|> Posicionavel
+
+Passageiro --|> EntidadeMapa
+Nave --|> EntidadeMapa
+Asteroide --|> EntidadeMapa
+Inimigo --|> EntidadeMapa
+
+Nave ..|> Movel
+Inimigo ..|> Movel
+
+Professor --|> Passageiro
+Engenheiro --|> Passageiro
+Astronauta --|> Passageiro
+
+Missao "1" *-- "1" Nave
+Missao "1" *-- "0..*" Passageiro
+Missao "1" *-- "0..*" Asteroide
+Missao "1" *-- "0..*" Inimigo
+
+Nave "1" o-- "0..*" Passageiro : embarca
+
+@enduml
