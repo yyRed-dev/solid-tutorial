@@ -16,4 +16,10 @@ public class Inimigo extends EntidadeMapa implements Movel {
         setX(getX() + dx);
         setY(getY() + dy);
     }
+
+    @Override
+    public String getSimbolo() {
+        return "I";
+    }
+
 }

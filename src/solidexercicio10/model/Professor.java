@@ -15,5 +15,10 @@ public class Professor extends Passageiro {
     public String getTipo() {
         return "Professor";
     }
-}
 
+    @Override
+    public String getSimbolo() {
+        return "P";
+    }
+
+}

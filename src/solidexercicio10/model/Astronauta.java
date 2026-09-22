@@ -14,4 +14,10 @@ public class Astronauta extends Passageiro{
     public String getTipo() {
         return "Astronauta";
     }
+
+    @Override
+    public String getSimbolo() {
+        return "T";
+    }
+    
 }

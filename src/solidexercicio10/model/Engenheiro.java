@@ -14,4 +14,10 @@ public class Engenheiro extends Passageiro{
     public String getTipo() {
         return "Engenheiro";
     }
+
+    @Override
+    public String getSimbolo() {
+        return "E";
+    }
+    
 }

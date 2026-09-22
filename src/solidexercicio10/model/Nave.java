@@ -79,5 +79,10 @@ public class Nave extends EntidadeMapa implements Movel {
             vidas--;
         }
     }
-}
 
+    @Override
+    public String getSimbolo() {
+        return "N";
+    }
+
+}

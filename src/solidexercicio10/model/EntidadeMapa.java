@@ -27,4 +27,6 @@ public abstract class EntidadeMapa implements Posicionavel {
     protected void setY(int y) {
         this.y = y;
     }
+    
+    public abstract String getSimbolo();
 }
