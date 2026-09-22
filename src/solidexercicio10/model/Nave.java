@@ -39,29 +39,13 @@ public class Nave extends EntidadeMapa implements Movel {
         setY(getY() + dy);
     }
 
-    public void moverComLimites(
-            char direcao,
-            int minX,
-            int maxX,
-            int minY,
-            int maxY) {
+    public void moverComLimites(char direcao, int minX, int maxX, int minY, int maxY) {
 
         switch (direcao) {
-            case 'w':
-                if (getY() > minY) mover(0, -1);
-                break;
-
-            case 's':
-                if (getY() < maxY) mover(0, 1);
-                break;
-
-            case 'a':
-                if (getX() > minX) mover(-1, 0);
-                break;
-
-            case 'd':
-                if (getX() < maxX) mover(1, 0);
-                break;
+            case 'w': if (getY() < maxY) mover(0, 1); break;
+            case 's': if (getY() > minY) mover(0, -1); break;
+            case 'a': if (getX() > minX) mover(-1, 0); break;
+            case 'd': if (getX() < maxX) mover(1, 0); break;
         }
     }
 
@@ -70,7 +54,6 @@ public class Nave extends EntidadeMapa implements Movel {
             passageiros.add(p);
             return true;
         }
-
         return false;
     }
 
