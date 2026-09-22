@@ -3,41 +3,65 @@ package solidexercicio10.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Nave {
-     private String id;
-    private int x;
-    private int y;
+public class Nave extends EntidadeMapa implements Movel {
+
+    private String id;
     private int capacidade;
     private int vidas;
     private List<Passageiro> passageiros = new ArrayList<>();
 
     public Nave(String id, int capacidade) {
+        super(0, 0);
         this.id = id;
         this.capacidade = capacidade;
-        this.vidas = 3;  // Inicia com 3 vidas
-        this.x = 0;
-        this.y = 0;
+        this.vidas = 3;
     }
 
-    public String getId() { return id; }
-    public int getX() { return x; }
-    public int getY() { return y; }
-    public int getCapacidade() { return capacidade; }
-    public int getVidas() { return vidas; }
-    public List<Passageiro> getPassageiros() { return passageiros; }
+    public String getId() {
+        return id;
+    }
 
-    public void moveUp() { y--; }
-    public void moveDown() { y++; }
-    public void moveLeft() { x--; }
-    public void moveRight() { x++; }
+    public int getCapacidade() {
+        return capacidade;
+    }
 
-    // Versão com limites para evitar sair do mapa
-    public void moverComLimites(char direcao, int minX, int maxX, int minY, int maxY) {
+    public int getVidas() {
+        return vidas;
+    }
+
+    public List<Passageiro> getPassageiros() {
+        return passageiros;
+    }
+
+    @Override
+    public void mover(int dx, int dy) {
+        setX(getX() + dx);
+        setY(getY() + dy);
+    }
+
+    public void moverComLimites(
+            char direcao,
+            int minX,
+            int maxX,
+            int minY,
+            int maxY) {
+
         switch (direcao) {
-            case 'w': if (y > minY) y--; break;
-            case 's': if (y < maxY) y++; break;
-            case 'a': if (x > minX) x--; break;
-            case 'd': if (x < maxX) x++; break;
+            case 'w':
+                if (getY() > minY) mover(0, -1);
+                break;
+
+            case 's':
+                if (getY() < maxY) mover(0, 1);
+                break;
+
+            case 'a':
+                if (getX() > minX) mover(-1, 0);
+                break;
+
+            case 'd':
+                if (getX() < maxX) mover(1, 0);
+                break;
         }
     }
 
@@ -46,6 +70,7 @@ public class Nave {
             passageiros.add(p);
             return true;
         }
+
         return false;
     }
 

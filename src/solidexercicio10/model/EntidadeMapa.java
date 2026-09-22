@@ -2,10 +2,10 @@ package solidexercicio10.model;
 
 public abstract class EntidadeMapa implements Posicionavel {
 
-    protected int x;
-    protected int y;
+    private int x;
+    private int y;
 
-    protected EntidadeMapa(int x, int y) {
+    public EntidadeMapa(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -20,7 +20,11 @@ public abstract class EntidadeMapa implements Posicionavel {
         return y;
     }
 
-    public boolean estaNaPosicao(int x, int y) {
-        return this.x == x && this.y == y;
+    protected void setX(int x) {
+        this.x = x;
+    }
+
+    protected void setY(int y) {
+        this.y = y;
     }
 }
