@@ -61,7 +61,7 @@ public class JogoService {
 
         while (true) {
             renderer.desenhar(missao, pontos, nome, min, max, min, max);
-            System.out.printf( "A bordo: %d/%d | Restantes: %d | Total: %d%n", nave.getPassageiros().size(), nave.getCapacidade(), missao.getPassageiros().size(), nave.getPassageiros().size() + missao.getPassageiros().size() );
+            System.out.printf("A bordo: %d/%d | Restantes: %d | Total: %d | Vidas: %d%n", nave.getPassageiros().size(), nave.getCapacidade(), missao.getPassageiros().size(), nave.getPassageiros().size() + missao.getPassageiros().size(), nave.getVidas() );
             char c = ler(s, "Comando: ", "q").toLowerCase().charAt(0);
             if (c == 'q')
                 return;
