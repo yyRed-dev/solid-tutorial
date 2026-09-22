@@ -1,5 +1,26 @@
 package solidexercicio10.model;
 
-public class EntidadeMapa {
-    
+public abstract class EntidadeMapa implements Posicionavel {
+
+    protected int x;
+    protected int y;
+
+    protected EntidadeMapa(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public int getX() {
+        return x;
+    }
+
+    @Override
+    public int getY() {
+        return y;
+    }
+
+    public boolean estaNaPosicao(int x, int y) {
+        return this.x == x && this.y == y;
+    }
 }
