@@ -1,6 +1,6 @@
 package solidexercicio10.model;
 
-public class Dificuldade {
+public enum Dificuldade {
     FACIL, MEDIO, DIFICIL;
 
     public static Dificuldade deString(String s) {
