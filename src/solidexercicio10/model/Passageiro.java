@@ -1,8 +1,5 @@
 package solidexercicio10.model;
 
-public class Passageiro {
-  package solidexercicio10.model;
-
 public abstract class Passageiro extends EntidadeMapa {
 
     private final String nome;
@@ -20,4 +17,4 @@ public abstract class Passageiro extends EntidadeMapa {
 
     public abstract String getTipo();
 }
-}
+
