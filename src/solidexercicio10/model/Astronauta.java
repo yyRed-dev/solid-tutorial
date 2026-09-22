@@ -1,12 +1,17 @@
 package solidexercicio10.model;
 
-public class Astronauta {
+public class Astronauta extends Passageiro{
      public Astronauta(String nome, int x, int y) {
-        super(nome, "Astronauta", x, y);
+       super(nome, x, y);
     }
 
     @Override
     public int getPontuacao() {
-        return 20;  // Astronauta vale 20 pontos
+        return 20;
+    }
+
+    @Override
+    public String getTipo() {
+        return "Astronauta";
     }
 }

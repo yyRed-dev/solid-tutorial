@@ -1,12 +1,17 @@
 package solidexercicio10.model;
 
-public class Engenheiro {
-    public Engenheiro(String nome, int x, int y) {
-        super(nome, "Engenheiro", x, y);
+public class Engenheiro extends Passageiro{
+  public Engenheiro(String nome, int x, int y) {
+        super(nome, x, y);
     }
 
     @Override
     public int getPontuacao() {
-        return 15;  // Engenheiro vale 15 pontos
+        return 15;
+    }
+
+    @Override
+    public String getTipo() {
+        return "Engenheiro";
     }
 }
