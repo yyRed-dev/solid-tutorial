@@ -1,4 +1,7 @@
 # Missão Marte Unifor: atividade prática de SOLID
+Equipe: 
+- João Pedro Palhano Militão : 2522705
+- Lucas Fideli : 2422728
 
 Este repositório é uma atividade guiada de refatoração em Java. O aluno parte
 do mini-jogo em `src/exercicio10`, acompanha o tutorial em `src/README.md` e
